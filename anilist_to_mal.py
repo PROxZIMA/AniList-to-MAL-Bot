@@ -17,8 +17,8 @@ query ($username: String, $type: MediaType) {
                     }
                     format
                     episodes
-                  	volumes
-                  	chapters
+                    volumes
+                    chapters
                 }
                 progress
                 progressVolumes
@@ -156,7 +156,7 @@ def xmlParserAnime(animeList, variables, title):
     tree = etree.ElementTree(etree.fromstring(animeXML))
 
     for node in tree.xpath('//myanimelist'):
-        node[:] = sorted(node, key=lambda ch: (ch.xpath('my_status/text()'), ch.xpath('my_score/text()'), ch.xpath('series_title/text()')))
+        node[:] = sorted(node, key=lambda ch: (ch.xpath('my_status/text()'), ch.xpath('series_title/text()')))
 
     return tree
 
@@ -228,7 +228,7 @@ def xmlParserManga(animeList, variables, title):
     tree = etree.ElementTree(etree.fromstring(animeXML))
 
     for node in tree.xpath('//myanimelist'):
-        node[:] = sorted(node, key=lambda ch: (ch.xpath('my_status/text()'), ch.xpath('my_score/text()'), ch.xpath('manga_title/text()')))
+        node[:] = sorted(node, key=lambda ch: (ch.xpath('my_status/text()'), ch.xpath('manga_title/text()')))
 
     return tree
 
