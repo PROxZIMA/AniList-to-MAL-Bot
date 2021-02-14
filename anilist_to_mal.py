@@ -124,7 +124,7 @@ def xmlParserAnime(animeList, variables, title):
     <anime>
         <series_animedb_id>{entry['media']['idMal']}</series_animedb_id>
         <series_title>{mediaTitle(entry['media']['title'], title)}</series_title>
-        <series_type>{format_.get(entry['media']['format'], None)}</series_type>
+        <series_type>{format_.get(entry['media']['format'], 'TV')}</series_type>
         <series_episodes>{entry['media']['episodes'] if entry['media']['episodes'] else 0}</series_episodes>
         <my_id>0</my_id>
         <my_watched_episodes>{entry['progress']}</my_watched_episodes>
@@ -134,7 +134,7 @@ def xmlParserAnime(animeList, variables, title):
         <my_score>{entry['score']}</my_score>
         <my_storage></my_storage>
         <my_storage_value>0.00</my_storage_value>
-        <my_status>{status.get(my_status['name'], None)}</my_status>
+        <my_status>{status.get(my_status['name'], '')}</my_status>
         <my_comments>{entry['notes'] if entry['notes'] else ''}</my_comments>
         <my_times_watched>{entry['repeat']}</my_times_watched>
         <my_rewatch_value></my_rewatch_value>
