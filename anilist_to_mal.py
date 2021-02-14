@@ -135,7 +135,7 @@ def xmlParserAnime(animeList, variables, title):
         <my_storage></my_storage>
         <my_storage_value>0.00</my_storage_value>
         <my_status>{status.get(my_status['name'], None)}</my_status>
-        <my_comments>{entry['notes']}</my_comments>
+        <my_comments>{entry['notes'] if entry['notes'] else ''}</my_comments>
         <my_times_watched>{entry['repeat']}</my_times_watched>
         <my_rewatch_value></my_rewatch_value>
         <my_priority>LOW</my_priority>
@@ -208,7 +208,7 @@ def xmlParserManga(animeList, variables, title):
         <my_storage></my_storage>
         <my_retail_volumes>0</my_retail_volumes>
         <my_status>{status.get(my_status['name'], 'Completed')}</my_status>
-        <my_comments>{entry['notes']}</my_comments>
+        <my_comments>{entry['notes'] if entry['notes'] else ''}</my_comments>
         <my_times_read>{entry['repeat']}</my_times_read>
         <my_tags></my_tags>
         <my_priority>Low</my_priority>
