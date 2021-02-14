@@ -122,7 +122,7 @@ def xmlParserAnime(animeList, variables, title):
             if my_status['name'] != 'Favorites':
                 field = f'''
     <anime>
-        <series_animedb_id>{entry['media']['idMal'] if entry['media']['idMal'] else ''}</series_animedb_id>
+        <series_animedb_id>{entry['media']['idMal'] if entry['media']['idMal'] else 0}</series_animedb_id>
         <series_title>{mediaTitle(entry['media']['title'], title)}</series_title>
         <series_type>{format_.get(entry['media']['format'], 'TV')}</series_type>
         <series_episodes>{entry['media']['episodes'] if entry['media']['episodes'] else 0}</series_episodes>
