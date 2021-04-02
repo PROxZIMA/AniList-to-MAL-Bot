@@ -162,7 +162,7 @@ def xmlParserAnime(animeList, variables, title):
 
 
 
-def xmlParserManga(animeList, variables, title):
+def xmlParserManga(animeList: dict, variables: dict, title: str):
     mediaList = animeList['data']['MediaListCollection']['lists']
 
     animeXML = f'''<myanimelist>
@@ -234,7 +234,7 @@ def xmlParserManga(animeList, variables, title):
 
 
 
-def fileParser(username: str, type_ = 'ANIME', title = 'english') -> str:
+def fileParser(username: str, type_: str = 'ANIME', title: str = 'english') -> str:
     variables = {
         'username': username,
         'type': type_
@@ -251,9 +251,9 @@ def fileParser(username: str, type_ = 'ANIME', title = 'english') -> str:
             return error + '\nEnter proper MediaType (ANIME | MANGA)!!!'
 
     if variables['type'] == 'ANIME':
-        tree = xmlParserAnime(animeList=animeList, variables=variables, title=title)
+        tree = xmlParserAnime(animeList = animeList, variables = variables, title = title)
     else:
-        tree = xmlParserManga(animeList=animeList, variables=variables, title=title)
+        tree = xmlParserManga(animeList = animeList, variables = variables, title = title)
 
 
     # Export XML file
@@ -262,3 +262,7 @@ def fileParser(username: str, type_ = 'ANIME', title = 'english') -> str:
     tree.write(path, encoding='utf-8')
 
     return path
+
+
+if __name__ == "__main__":
+    fileParser('PROxZIMA', 'ANIME', 'english')
